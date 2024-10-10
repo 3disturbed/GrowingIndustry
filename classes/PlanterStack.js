@@ -1,7 +1,7 @@
 // planter stack is a button that allows the user to select a planter to place on the map if they have any in their inventory
 
 
-class PlanterStack {
+export class PlanterStack {
     constructor(user, ctx, x, y, width, height) {
         this.user = user;
         this.ctx = ctx;
@@ -12,7 +12,8 @@ class PlanterStack {
         this.selected = 0;
     }
 
-    draw() {
+    draw(G) {
+        this.ctx = G.ctx;
         this.ctx.fillStyle = 'white';
         this.ctx.fillRect(this.x, this.y, this.width, this.height);
         this.ctx.fillStyle = 'black';

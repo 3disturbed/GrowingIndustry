@@ -1,4 +1,6 @@
-
+import User from "./classes/User.js";
+import { DrawUI, PauseScreen } from "./functions/GameUI.js";
+import {KeyControls} from "./functions/KeyControls.js";
 
 
 class game{
@@ -26,7 +28,7 @@ class game{
         this.ctx.fillText("Growing Industry Loading...(" + this.user.name + ")", this.width/2, this.height/2);
         this.user.saveUser();
         this.showFPS = false;
-        
+        KeyControls(this);
         
 
         

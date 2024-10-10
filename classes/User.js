@@ -1,5 +1,5 @@
 // User Model
-class User {
+export default class User {
     constructor() {
 
         this.name = "";

@@ -1,6 +1,7 @@
+export  function KeyControls(GAME){
 
-//bing Shift R to reset the user save data
-document.addEventListener('keydown', function(event) {
+    //bing Shift R to reset the user save data
+    document.addEventListener('keydown', function(event) {
     if(event.shiftKey && event.key === 'R'){
         GAME.user.reset();
         GAME.user.saveUser();
@@ -44,4 +45,6 @@ document.addEventListener('keydown', function(event) {
     GAME.user.saveUser();
 
 });
+}
+
 

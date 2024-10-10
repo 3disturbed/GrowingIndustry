@@ -1,4 +1,6 @@
-function DrawUI(G){
+
+
+export function DrawUI(G){
     G.ctx.clearRect(0, 0, G.width, G.height);
     //draw Backdrop image
     if(G.backDropImg.complete){
@@ -19,10 +21,11 @@ function DrawUI(G){
     if(G.showFPS){
         G.ctx.fillText("FPS: " + G.fps, G.width/2, G.height/2 + 400);
     }
+    planters.draw(G);
 }
 
 
-function PauseScreen(G){
+export function PauseScreen(G){
     this.ctx.clearRect(0, 0, this.width, this.height);
     this.ctx.fillText("Time Paused", this.width/2, this.height/2 -100);
     this.ctx.fillText("Growing Industry", this.width/2, this.height/2);
