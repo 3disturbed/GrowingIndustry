@@ -27,7 +27,7 @@ class game{
         this.interval = 1000/this.fps;
         this.ctx.font = "30px Arial";
         this.ctx.fillStyle = "black";
-        this.planterstack = new PlanterStack(this.user, this.ctx, 200, this.height - 100, 100, 100);
+        this.planterstack = new PlanterStack(this.user, this.ctx, 160, this.height - 200, 150, 200);
         this.ctx.fillRect(0, 0, this.width, this.height);  
         this.logo.onload = () =>  {
                 this.ctx.drawImage(this.logo, this.width/2 - 250, this.height/2 - 300, 500, 500);

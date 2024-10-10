@@ -11,12 +11,13 @@ export class PlanterStack {
         this.height = height;
         this.selected = 0;
         this.user = user;
+        this.img = new Image();
+        this.img.src = "./images/Planter.png";
     }
 
     draw(G) {
         this.ctx = G.ctx;
-        this.ctx.fillStyle = 'white';
-        this.ctx.fillRect(this.x, this.y, this.width, this.height);
+        this.ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
 
     }
 
