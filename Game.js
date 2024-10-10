@@ -7,7 +7,7 @@ class game{
 
     // Constructor
     constructor(canvas){
-        this.ver = " Prototype v0.0.1.9 dev CI/CD";
+        this.ver = " Prototype v0.0.1.10 dev CI/CD";
 
         this.logo = new Image();
         this.logo.src = "./images/logo.png";
@@ -54,6 +54,11 @@ class game{
         
     
     }
+
+    updateMousePosition(x, y) {
+        GAME.mouseX = x * GAME.width / GAME.canvas.clientWidth;
+        GAME.mouseY = y * GAME.height / GAME.canvas.clientHeight;
+    }
    
     // Start the game
     start(){
@@ -87,8 +92,16 @@ document.addEventListener('mousemove', function(event){
     GAME.mouseX = event.offsetX;
     GAME.mouseY = event.offsetY;
     // correct the mouse position for the canvas actual position and size compared to the drawing area
-    GAME.mouseX = GAME.mouseX * GAME.width / GAME.canvas.clientWidth;
-    GAME.mouseY = GAME.mouseY * GAME.height / GAME.canvas.clientHeight;
+    GAME.updateMousePosition(event.offsetX, event.offsetY);
+
+});
+document.addEventListener('touchmove', function(event){
+    event.preventDefault();
+    let touch = event.touches[0];
+    GAME.mouseX = touch.clientX;
+    GAME.mouseY = touch.clientY;
+    // correct the mouse position for the canvas actual position and size compared to the drawing area
+    GAME.updateMousePosition(touch.clientX, touch.clientY);
 
 });
 
@@ -109,12 +122,7 @@ document.getElementById('game').addEventListener('click', function(event){
         } 
         }
     }
-    
 
-});
-
-// register for click events
-document.addEventListener('click', function(event){
     GAME.planterstack.click(GAME.mouseX, GAME.mouseY, GAME.user);
     if(GAME.user.timeMoving == false){
         //unpause the game
