@@ -11,7 +11,7 @@ export class User {
         this.inventory = [];
         this.pots = 1;
         this.Holding = null;
-
+        this.fullscreen = true;
         //check if user already exists
         this.loadUser();
         if(this.name == ""){
@@ -52,6 +52,7 @@ export class User {
             this.gameSpeed = user.gameSpeed;
             this.timeMoving = user.timeMoving;
             this.holding = user.holding;
+            this.fullscreen = user.fullscreen;
 
         }
     }
@@ -59,6 +60,7 @@ export class User {
     saveUser() {
         // Save user to local storage
         localStorage.setItem('user', JSON.stringify(this));
+        
     }
 
 }

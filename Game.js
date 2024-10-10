@@ -7,7 +7,7 @@ class game{
 
     // Constructor
     constructor(canvas){
-        this.ver = " Prototype v0.0.1 dev CI/CD";
+        this.ver = " Prototype v0.0.1.8 dev CI/CD";
 
         this.logo = new Image();
         this.logo.src = "./images/logo.png";
@@ -92,6 +92,27 @@ document.addEventListener('mousemove', function(event){
 
 });
 
+document.getElementById('game').addEventListener('click', function(event){
+    var elem = document.getElementById('game');
+    if(GAME.user.timeMoving == false){
+
+    } else {
+        if(GAME.user.fullscreen){
+        if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+        } else if (elem.mozRequestFullScreen) { // Firefox
+            elem.mozRequestFullScreen();
+        } else if (elem.webkitRequestFullscreen) { // Chrome, Safari, and Opera
+            elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) { // IE/Edge
+            elem.msRequestFullscreen();
+        } 
+        }
+    }
+    
+
+});
+
 // register for click events
 document.addEventListener('click', function(event){
     GAME.planterstack.click(GAME.mouseX, GAME.mouseY, GAME.user);
@@ -102,6 +123,7 @@ document.addEventListener('click', function(event){
         GAME.user.gameSpeed = 1;
         GAME.update();
         GAME.user.saveUser();
+        
     }
 });
 const GAME = new game(document.getElementById('game'));
