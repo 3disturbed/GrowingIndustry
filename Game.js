@@ -95,6 +95,12 @@ document.addEventListener('mousemove', function(event){
 // register for click events
 document.addEventListener('click', function(event){
     GAME.planterstack.click(GAME.mouseX, GAME.mouseY, GAME.user);
+    if(GAME.user.timeMoving == false){
+        //unpause the game
+        GAME.user.timeMoving = true;
+        GAME.running = GAME.user.timeMoving;
+        GAME.update();
+    }
 });
 const GAME = new game(document.getElementById('game'));
 setTimeout(() => GAME.start(), 3000);
