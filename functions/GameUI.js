@@ -26,7 +26,7 @@ export function DrawUI(G){
     let mx = G.mouseX;
     let my = G.mouseY;
     if(G.user.holding == 'planter'){
-        G.ctx.drawImage(G.planterstack.img, mx-75, my-100, 150, 200);
+        G.ctx.drawImage(G.planterstack.img, mx-75, my-100, 100, 100);
         G.ctx.fillText("Planter", mx-60, my+110);
         
     }
