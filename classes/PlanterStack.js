@@ -26,7 +26,7 @@ export class PlanterStack {
         if (mx > this.x && mx < this.x + this.width && my > this.y && my < this.y + this.height) {
             if (this.user.holding == 'planter') {
                 this.user.pots++;
-                this.user.holding = null;
+                this.user.grabItem(null);
             } else if (this.user.pots > 0 && this.user.holding == null) {
                 this.user.pots--;
                 this.user.grabItem('planter');

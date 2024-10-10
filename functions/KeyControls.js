@@ -35,11 +35,20 @@ export  function KeyControls(GAME){
         GAME.update();
     }
 
-    if(event.key === '0' || event.key === 'p'){
-        GAME.user.gameSpeed = 0;
-        GAME.user.timeMoving = false;
-        GAME.running = GAME.user.timeMoving;
-        GAME.update();
+    if(event.key === 'p'){
+        if(GAME.user.timeMoving){       
+            GAME.user.gameSpeed = 0;
+            GAME.user.timeMoving = false;
+            GAME.running = GAME.user.timeMoving;
+            GAME.update();
+
+        } else {
+            GAME.user.gameSpeed = 1;
+            GAME.user.timeMoving = true;
+            GAME.running = GAME.user.timeMoving;
+            GAME.update();
+        }
+        GAME.user.saveUser();
     }
 
     GAME.user.saveUser();

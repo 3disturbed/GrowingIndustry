@@ -7,6 +7,8 @@ class game{
 
     // Constructor
     constructor(canvas){
+        this.ver = " Prototype v0.0.1 dev CI/CD";
+
         this.logo = new Image();
         this.logo.src = "./images/logo.png";
 
@@ -36,12 +38,18 @@ class game{
         this.user = new User();
         this.running = this.user.timeMoving;
         this.ctx.fillText("Growing Industry Loading...(" + this.user.name + ")", this.width/2, this.height/2 + 200);
+        // credits at the bottom of the screen
+        // color and font size
+        this.ctx.fillStyle = "grey";
+        this.ctx.font = "20px Arial";
+        this.ctx.fillText("Portfolio Game Created by: ", this.width/2, this.height - 60);
+        this.ctx.fillText("Ben Darlington(3Disturbed, Dark Firebeard), Sarah Darlington(Sazzzel), and Amber Darlington(PrincessAmbie) Version :" + this.ver, this.width/2, this.height - 25);
         this.user.saveUser();
         this.showFPS = false;
         this.mouseX = 0;
         this.mouseY = 0;
         KeyControls(this);
-        
+      
 
         
     
@@ -61,7 +69,7 @@ class game{
     // Update the game
     update(){
         
-        if(this.running){
+        if(this.running && this.user.timeMoving){
             DrawUI(this);
             this.planterstack.draw(this);
             
@@ -89,5 +97,5 @@ document.addEventListener('click', function(event){
     GAME.planterstack.click(GAME.mouseX, GAME.mouseY, GAME.user);
 });
 const GAME = new game(document.getElementById('game'));
-setTimeout(() => GAME.start(), 1000);
+setTimeout(() => GAME.start(), 3000);
 
