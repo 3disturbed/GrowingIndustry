@@ -1,5 +1,5 @@
 // User Model
-export default class User {
+export class User {
     constructor() {
 
         this.name = "";
@@ -34,7 +34,8 @@ export default class User {
     }
 
     grabItem(item){
-        this.Holding = item;
+        this.holding = item;
+        this.saveUser();
     }
 
     loadUser() {
@@ -49,6 +50,7 @@ export default class User {
             this.pots = user.pots;
             this.gameSpeed = user.gameSpeed;
             this.timeMoving = user.timeMoving;
+            this.holding = user.holding;
 
         }
     }

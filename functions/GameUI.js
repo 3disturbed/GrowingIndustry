@@ -1,5 +1,4 @@
 
-
 export function DrawUI(G){
     G.ctx.clearRect(0, 0, G.width, G.height);
     //draw Backdrop image
@@ -21,7 +20,13 @@ export function DrawUI(G){
     if(G.showFPS){
         G.ctx.fillText("FPS: " + G.fps, G.width/2, G.height/2 + 400);
     }
-    planters.draw(G);
+    // get mouse position
+    let mx = G.mouseX;
+    let my = G.mouseY;
+    if(G.user.holding == 'planter'){
+        G.ctx.fillText("Planter", mx, my);
+    }
+    
 }
 
 

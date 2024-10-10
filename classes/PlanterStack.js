@@ -10,27 +10,30 @@ export class PlanterStack {
         this.width = width;
         this.height = height;
         this.selected = 0;
+        this.user = user;
     }
 
     draw(G) {
         this.ctx = G.ctx;
         this.ctx.fillStyle = 'white';
         this.ctx.fillRect(this.x, this.y, this.width, this.height);
-        this.ctx.fillStyle = 'black';
-        this.ctx.fillText("Planter Stack", this.x + 10, this.y + 20);
-        this.ctx.fillText("Pots: " + this.user.pots, this.x + 10, this.y + 40);
-        this.ctx.fillText("Selected: " + this.selected, this.x + 10, this.y + 60);
+
     }
 
-    click(mx, my) {
+    click(mx, my, user) {
+        
+        this.user = user;
         if (mx > this.x && mx < this.x + this.width && my > this.y && my < this.y + this.height) {
             if (this.user.holding == 'planter') {
                 this.user.pots++;
                 this.user.holding = null;
-            } else if (this.user.pots > 0) {
-            
+            } else if (this.user.pots > 0 && this.user.holding == null) {
+                this.user.pots--;
                 this.user.grabItem('planter');
-            } 
+            } else {
+                console.log(this.user.holding);
+            }
+
         }
     }
 
