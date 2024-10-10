@@ -7,7 +7,7 @@ class game{
 
     // Constructor
     constructor(canvas){
-        this.ver = " Prototype v0.0.1.8 dev CI/CD";
+        this.ver = " Prototype v0.0.1.9 dev CI/CD";
 
         this.logo = new Image();
         this.logo.src = "./images/logo.png";
