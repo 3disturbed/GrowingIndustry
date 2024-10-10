@@ -10,6 +10,7 @@ class User {
         this.marketStalls = [];
         this.inventory = [];
         this.pots = 1;
+        this.Holding = null;
 
         //check if user already exists
         this.loadUser();
@@ -32,6 +33,10 @@ class User {
 
     }
 
+    grabItem(item){
+        this.Holding = item;
+    }
+
     loadUser() {
         // Load user from local storage
         let user = JSON.parse(localStorage.getItem('user'));
@@ -44,7 +49,7 @@ class User {
             this.pots = user.pots;
             this.gameSpeed = user.gameSpeed;
             this.timeMoving = user.timeMoving;
-            
+
         }
     }
 
