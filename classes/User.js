@@ -4,7 +4,7 @@ export class User {
 
         this.name = "";
         this.gameSpeed = 1;
-        this.timeMoving = false;
+        this.timeMoving = true;
         this.money = 1000;
         this.greenhouses = [];
         this.marketStalls = [];
@@ -28,7 +28,8 @@ export class User {
         this.marketStalls = [];
         this.inventory = [];
         this.pots = 1;
-        this.timeMoving = false;
+        this.timeMoving = true;
+        this.gameSpeed = 1;
         this.saveUser();
 
     }

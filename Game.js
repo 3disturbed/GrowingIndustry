@@ -99,7 +99,9 @@ document.addEventListener('click', function(event){
         //unpause the game
         GAME.user.timeMoving = true;
         GAME.running = GAME.user.timeMoving;
+        GAME.user.gameSpeed = 1;
         GAME.update();
+        GAME.user.saveUser();
     }
 });
 const GAME = new game(document.getElementById('game'));
